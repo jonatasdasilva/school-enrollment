@@ -1,0 +1,42 @@
+services:
+  school-enrollment-api:
+    depends_on:
+      school-enrollment-db:
+        condition: service_healthy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: school-enrollment-api
+    container_name: school-enrollment-api
+    environment:
+      DATABASE_URL: "postgresql://staff:staffenrollment@school-enrollment-db:5432/school-enrollment"
+    ports:
+      - "8778:8778"
+    networks:
+      - school_network
+  school-enrollment-db:
+    image: postgres:alpine
+    container_name: school-enrollment-db
+    environment:
+      - POSTGRES_USER=staff
+      - POSTGRES_PASSWORD=staffenrollment
+      - POSTGRES_DB=school-enrollment
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U staff -d school-enrollment"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    ports:
+      - "5454:5432"
+    networks:
+      - school_network
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+# rede customizada
+networks:
+  school_network:
+    driver: bridge

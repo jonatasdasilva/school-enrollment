@@ -1,0 +1,22 @@
+# Ignorar o diretório de dados do PostgreSQL
+postgres_data/
+
+# Ignorar arquivos e pastas do Git
+.git
+.gitignore
+
+# Ignorar arquivos específicos do Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Ignorar arquivos de ambiente virtual do Python
+.venv
+venv
+env/
+
+# Ignorar caches do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
