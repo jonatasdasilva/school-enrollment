@@ -1,5 +1,7 @@
 # API School Enrollment
 
+![alt text](image.png)
+
 Este projeto busca desenvolver um API básica, para solucionar o problema das matrículas dos alunos da escola **Pequenas Crianças**.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
