@@ -8,7 +8,4 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 COPY . .
 
-RUN alembic upgrade head
-RUN chown -R 1000:1000 postgres_data
-
-CMD ["python", "api/server.py"]
+CMD ["sh", "-c", "alembic upgrade head && python api/server.py"]
