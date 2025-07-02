@@ -118,7 +118,7 @@ Pra executar e testar a solução, basta esscolher uma das formas abaixo.
 2. Usando Python 3 local:
    - iniciar o banco de dados: `alembic upgrade head`;
    - editar o arquivo `.env` para configurar a URL do banco de dados (**DATABASE_URL**);
-   - a porta de acesso a base de dados, com localhost é a `5454` e na rede docker é a `5432`;
+   - a porta de acesso a base de dados, com localhost é a `5454` para o contêiner docker e na rede docker é a `5432`, em caso de uso diferente faz-se necessário inserir a porta correta de acesso;
    - executar o comando: `python3 api/server.py`;
    - realizar consulta na API usando algum utilitário como `curl`: `curl http://localhost:8778/students`.
 
